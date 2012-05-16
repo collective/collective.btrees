@@ -7,5 +7,58 @@
 
   <five:registerPackage package="." initialize=".initialize" />
 
+  <adapter
+      for="zope.interface.Interface"
+      provides=".interfaces.IIFBTreeContainer"
+      factory=".adapters.IFBTreeContainer"
+      />
+
+  <adapter
+      for="zope.interface.Interface"
+      provides=".interfaces.IIIBTreeContainer"
+      factory=".adapters.IIBTreeContainer"
+      />
+
+  <adapter
+      for="zope.interface.Interface"
+      provides=".interfaces.IIOBTreeContainer"
+      factory=".adapters.IOBTreeContainer"
+      />
+
+  <adapter
+      for="zope.interface.Interface"
+      provides=".interfaces.ILFBTreeContainer"
+      factory=".adapters.LFBTreeContainer"
+      />
+
+  <adapter
+      for="zope.interface.Interface"
+      provides=".interfaces.ILLBTreeContainer"
+      factory=".adapters.LLBTreeContainer"
+      />
+
+  <adapter
+      for="zope.interface.Interface"
+      provides=".interfaces.ILOBTreeContainer"
+      factory=".adapters.LOBTreeContainer"
+      />
+
+  <adapter
+      for="zope.interface.Interface"
+      provides=".interfaces.IOIBTreeContainer"
+      factory=".adapters.OIBTreeContainer"
+      />
+
+  <adapter
+      for="zope.interface.Interface"
+      provides=".interfaces.IOLBTreeContainer"
+      factory=".adapters.OLBTreeContainer"
+      />
+
+  <adapter
+      for="zope.interface.Interface"
+      provides=".interfaces.IOOBTreeContainer"
+      factory=".adapters.OOBTreeContainer"
+      />
 
 </configure>

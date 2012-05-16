@@ -30,8 +30,7 @@ setup(name='collective.btrees',
           # -*- Extra requirements: -*-
       ],
       extras_require={
-          'test': ['plone.app.testing',
-                   'collective.noindexing',],
+          'test': ['plone.app.testing'],
       },
       entry_points="""
       # -*- Entry points: -*-
