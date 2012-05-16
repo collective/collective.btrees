@@ -29,7 +29,8 @@ Example usage
 -------------
 
 Usually you will want to create an own adapter to override some
-settings.  Put this in an adapters.py::
+settings, at least the key used to store the annotations.  Put this in
+an adapters.py::
 
   from zope.interface import implements
   from zope.interface import Interface
@@ -65,7 +66,7 @@ dictionary in the btree (if this for some reason makes sense for your
 website)::
 
   container = IFormValuesContainer(self.context)
-  key = 'my key'
+  key = 'my key'  # maybe use the user id as key
   value = self.request.form
   container.insert(key, value)
   container.get(key)  # will return value
