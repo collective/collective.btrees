@@ -147,6 +147,12 @@ class TestCollectiveBtrees(unittest.TestCase):
         self.assertEqual(container.get(key2), value1)
 
     def testIFBTree(self):
+        try:
+            from BTrees.IFBTree import IFBTree
+            IFBTree  # pyflakes
+        except ImportError:
+            # Does not exist yet in Plone 3.
+            return
         portal = self.layer['portal']
         setRoles(portal, TEST_USER_ID, ('Manager',))
         doc = self._makeOne()
@@ -198,6 +204,12 @@ class TestCollectiveBtrees(unittest.TestCase):
         self.assertEqual(list(container.keys()), [])
 
     def testLFBTree(self):
+        try:
+            from BTrees.LFBTree import LFBTree
+            LFBTree  # pyflakes
+        except ImportError:
+            # Does not exist yet in Plone 3.
+            return
         portal = self.layer['portal']
         setRoles(portal, TEST_USER_ID, ('Manager',))
         doc = self._makeOne()
@@ -217,6 +229,12 @@ class TestCollectiveBtrees(unittest.TestCase):
         self.assertEqual(list(container.keys()), [])
 
     def testLLBTree(self):
+        try:
+            from BTrees.LLBTree import LLBTree
+            LLBTree  # pyflakes
+        except ImportError:
+            # Does not exist yet in Plone 3.
+            return
         portal = self.layer['portal']
         setRoles(portal, TEST_USER_ID, ('Manager',))
         doc = self._makeOne()
@@ -233,6 +251,12 @@ class TestCollectiveBtrees(unittest.TestCase):
         self.assertEqual(list(container.keys()), [])
 
     def testLOBTree(self):
+        try:
+            from BTrees.LOBTree import LOBTree
+            LOBTree  # pyflakes
+        except ImportError:
+            # Does not exist yet in Plone 3.
+            return
         portal = self.layer['portal']
         setRoles(portal, TEST_USER_ID, ('Manager',))
         doc = self._makeOne()
@@ -265,6 +289,12 @@ class TestCollectiveBtrees(unittest.TestCase):
         self.assertEqual(list(container.keys()), [])
 
     def testOLBTree(self):
+        try:
+            from BTrees.OLBTree import OLBTree
+            OLBTree  # pyflakes
+        except ImportError:
+            # Does not exist yet in Plone 3.
+            return
         portal = self.layer['portal']
         setRoles(portal, TEST_USER_ID, ('Manager',))
         doc = self._makeOne()

@@ -17,7 +17,7 @@ an object.
 Compatibility
 -------------
 
-I have only tried this on Plone 4.1 for now.  It will likely work on other versions
+I have tried this on Plone 3.3 and 4.1.  It will likely work on other versions
 as well.
 
 

@@ -1,7 +1,6 @@
 import logging
 
 import BTrees
-from persistent import Persistent
 from zope.annotation.interfaces import IAnnotations
 from zope.app.container.contained import ObjectAddedEvent
 from zope.app.container.contained import ObjectRemovedEvent
@@ -98,11 +97,20 @@ class BaseBTreeContainer(object):
         return self.__mapping.values(min=min, max=max)
 
 
-class IFBTreeContainer(BaseBTreeContainer):
+try:
+    from BTrees.IFBTree import IFBTree
+    IFBTree  # pyflakes
+except ImportError:
+    # Does not exist yet in Plone 3.  But there is something funky
+    # going on too, as it does exist.  Might have something to do with
+    # the order in which imports are done.
+    IFBTree = None
+else:
+    class IFBTreeContainer(BaseBTreeContainer):
 
-    implements(interfaces.IIFBTreeContainer)
-    ANNO_KEY = 'collective.btrees.ifbtree'
-    btree_class = BTrees.IFBTree.IFBTree
+        implements(interfaces.IIFBTreeContainer)
+        ANNO_KEY = 'collective.btrees.ifbtree'
+        btree_class = BTrees.IFBTree.IFBTree
 
 
 class IIBTreeContainer(BaseBTreeContainer):
@@ -118,26 +126,46 @@ class IOBTreeContainer(BaseBTreeContainer):
     ANNO_KEY = 'collective.btrees.iobtree'
     btree_class = BTrees.IOBTree.IOBTree
 
+try:
+    from BTrees.LFBTree import LFBTree
+    LFBTree  # pyflakes
+except ImportError:
+    # Does not exist yet in Plone 3.
+    LFBTree = None
+else:
+    class LFBTreeContainer(BaseBTreeContainer):
 
-class LFBTreeContainer(BaseBTreeContainer):
-
-    implements(interfaces.ILFBTreeContainer)
-    ANNO_KEY = 'collective.btrees.lfbtree'
-    btree_class = BTrees.LFBTree.LFBTree
+        implements(interfaces.ILFBTreeContainer)
+        ANNO_KEY = 'collective.btrees.lfbtree'
+        btree_class = BTrees.LFBTree.LFBTree
 
 
-class LLBTreeContainer(BaseBTreeContainer):
+try:
+    from BTrees.LLBTree import LLBTree
+    LLBTree  # pyflakes
+except ImportError:
+    # Does not exist yet in Plone 3.
+    LLBTree = None
+else:
+    class LLBTreeContainer(BaseBTreeContainer):
 
-    implements(interfaces.ILLBTreeContainer)
-    ANNO_KEY = 'collective.btrees.llbtree'
-    btree_class = BTrees.LLBTree.LLBTree
+        implements(interfaces.ILLBTreeContainer)
+        ANNO_KEY = 'collective.btrees.llbtree'
+        btree_class = BTrees.LLBTree.LLBTree
 
 
-class LOBTreeContainer(BaseBTreeContainer):
+try:
+    from BTrees.LOBTree import LOBTree
+    LOBTree  # pyflakes
+except ImportError:
+    # Does not exist yet in Plone 3.
+    LOBTree = None
+else:
+    class LOBTreeContainer(BaseBTreeContainer):
 
-    implements(interfaces.ILOBTreeContainer)
-    ANNO_KEY = 'collective.btrees.lobtree'
-    btree_class = BTrees.LOBTree.LOBTree
+        implements(interfaces.ILOBTreeContainer)
+        ANNO_KEY = 'collective.btrees.lobtree'
+        btree_class = BTrees.LOBTree.LOBTree
 
 
 class OIBTreeContainer(BaseBTreeContainer):
@@ -147,11 +175,18 @@ class OIBTreeContainer(BaseBTreeContainer):
     btree_class = BTrees.OIBTree.OIBTree
 
 
-class OLBTreeContainer(BaseBTreeContainer):
+try:
+    from BTrees.OLBTree import OLBTree
+    OLBTree  # pyflakes
+except ImportError:
+    # Does not exist yet in Plone 3.
+    OLBTree = None
+else:
+    class OLBTreeContainer(BaseBTreeContainer):
 
-    implements(interfaces.IOLBTreeContainer)
-    ANNO_KEY = 'collective.btrees.olbtree'
-    btree_class = BTrees.OLBTree.OLBTree
+        implements(interfaces.IOLBTreeContainer)
+        ANNO_KEY = 'collective.btrees.olbtree'
+        btree_class = BTrees.OLBTree.OLBTree
 
 
 class OOBTreeContainer(BaseBTreeContainer):

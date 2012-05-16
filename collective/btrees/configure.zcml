@@ -3,6 +3,7 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="collective.btrees">
 
   <five:registerPackage package="." initialize=".initialize" />
@@ -11,6 +12,7 @@
       for="zope.interface.Interface"
       provides=".interfaces.IIFBTreeContainer"
       factory=".adapters.IFBTreeContainer"
+      zcml:condition="installed BTrees.IFBTree"
       />
 
   <adapter
@@ -29,18 +31,21 @@
       for="zope.interface.Interface"
       provides=".interfaces.ILFBTreeContainer"
       factory=".adapters.LFBTreeContainer"
+      zcml:condition="installed BTrees.LFBTree"
       />
 
   <adapter
       for="zope.interface.Interface"
       provides=".interfaces.ILLBTreeContainer"
       factory=".adapters.LLBTreeContainer"
+      zcml:condition="installed BTrees.LLBTree"
       />
 
   <adapter
       for="zope.interface.Interface"
       provides=".interfaces.ILOBTreeContainer"
       factory=".adapters.LOBTreeContainer"
+      zcml:condition="installed BTrees.LOBTree"
       />
 
   <adapter
@@ -53,6 +58,7 @@
       for="zope.interface.Interface"
       provides=".interfaces.IOLBTreeContainer"
       factory=".adapters.OLBTreeContainer"
+      zcml:condition="installed BTrees.OLBTree"
       />
 
   <adapter
