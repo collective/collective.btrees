@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.1 (unreleased)
+1.1 (2012-06-05)
 ----------------
 
 - Changed setup.py url to point to the github collective.
