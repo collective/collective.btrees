@@ -6,7 +6,7 @@ setup(name='collective.btrees',
       version=version,
       description="Add btrees in annotations",
       long_description=open("README.txt").read() + "\n" +
-                       open("CHANGES.txt").read(),
+                       open("CHANGES.rst").read(),
       # Get more strings from
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
